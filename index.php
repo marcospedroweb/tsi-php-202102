@@ -9,6 +9,7 @@ error_reporting(E_ALL);
 
 
 echo 'Olá mundo!';
+echo 'teste';
 
 $nome = 'nome aleatorio';
 
