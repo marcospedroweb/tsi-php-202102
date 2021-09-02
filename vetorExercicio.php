@@ -1,4 +1,6 @@
 <?php
+echo "teste";
+echo '<br>';
 
 $dias['segunda'] = 'PI';
 $dias['terça'] = 'Content management systems e direito digital';
