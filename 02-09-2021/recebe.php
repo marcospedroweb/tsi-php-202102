@@ -1,4 +1,7 @@
 <?php
+$_POST['email'] = $_POST['email'] ?? 'Não informado';
+$_POST['password'] = isset($_POST['password']) ? $_POST['password']  : 'Não informado'; //(isset) retorna true se a variavel existir
+
 echo "seu email é: " . $_POST["email"];// ( $_POST )Vetor super global, que recebe tudo enviado pelo metodo
 // Recebe apenas dos inputs com "name"
 echo "<br>";
