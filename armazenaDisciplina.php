@@ -4,8 +4,10 @@ $dia = $_POST['dia'];
 //Forma não muito elegante
 //$dia = substr($dia, 8,2). '/'. substr($dia, 5, 2) . '/' . substr($dia, 0, 4);//(substr) "corta" a variavel especificada, substr(variavel, posição, quantos caracteres);
 
+//Formatação de datas
 $timestamp = strtotime($dia);
-$dia = date('', $timestamp);
+$dia = date( 'd/m/Y', $timestamp);
+//FIM Formatação de datas
 
 echo "A disciplina é {$_POST['nome']}<br><br>";
 echo "O professor da disciplina é {$_POST['prof']}<br><br>";
