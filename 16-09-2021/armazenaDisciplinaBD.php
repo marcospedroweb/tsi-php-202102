@@ -31,7 +31,7 @@ $bd = new PDO($bd_dsn, $bd_user, $bd_pass);//Conecta ao banco SQL
 $stmt = $bd->prepare('INSERT disciplinas 
                         (nome, professor, dia, descricao, end_ip) 
                     VALUES 
-                        (:nome, :professor, :dia, :descricao, :end_ip)');// (INSERT 'tabela' () VALUES (valores))
+                        (:nome, :professor, :dia, :descricao, :end_ip)');// (INSERT 'nome da tabela' () VALUES (valores))
 
 
 $valores[':nome'] = $_POST['nome'];
