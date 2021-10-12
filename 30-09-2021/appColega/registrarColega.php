@@ -6,14 +6,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 //usado para depurar codigo
 
-session_start();//Usado para iniciar uma sessão com o usuario, fazendo existir a varivael $_SESSION
-if(!isset($_SESSION['id'])){
-    //Se não houver id armazenado em session, o usuario não está logado e pede para se logar
-    echo "É necessario se logar para continuar!";
-    echo "<br><br><a href='./login.html'>Se logar</a>";
-    exit();//Finaliza a execução do programa
-}
-
 $nome = $_POST['nome'] ?? '';
 if($nome){
     //Verificação se está vazio/undefined aquela variavel, se estiver vazio, finaliza o programa
