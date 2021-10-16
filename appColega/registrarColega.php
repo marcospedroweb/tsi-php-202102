@@ -6,23 +6,13 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 //usado para depurar codigo
 
-session_start();//Usado para iniciar uma sessão com o usuario, fazendo existir a varivael $_SESSION
-if(!isset($_SESSION['id'])){
-    //Se não houver id armazenado em session, o usuario não está logado e pede para se logar
-    echo "É necessario se logar para continuar!";
-    echo "<br><br><a href='./login.html'>Se logar</a>";
-    exit();//Finaliza a execução do programa
-}
+require_once('./banco/controle.php');//Verifica se o usuario está logado
 
 $nome = $_POST['nome'] ?? '';
 if($nome){
     //Verificação se está vazio/undefined aquela variavel, se estiver vazio, finaliza o programa
 
-    $bd_dsn = 'mysql:host=localhost;port=3306;dbname=ling_serv';
-    $bd_user = 'root';//nome do usuario no banco de dados
-    $bd_pass = '';
-
-    $bd = new PDO($bd_dsn, $bd_user, $bd_pass);//Conecta ao banco SQL
+    require_once('./banco/conectaBanco.php'); //Requere apenas 1 vez aquele arquivo, se não conseguir pegar o arquivo, dá um erro fatal no programa
 
     //Preparando a consulta para evitar SQL Injection
     $stmt = $bd->prepare('INSERT INTO colegas
@@ -33,9 +23,17 @@ if($nome){
                                                 VALUES 
                                                     (:labelQualquer)')
                                             */
+    $success = $stmt->execute([':nome' => $nome]);
 
-    if($stmt->execute([':nome' => $nome])){
-        echo 'Gravado com sucesso';
-        echo '<br><a href="./colega.html">Voltar</a>';
+    if($success){
+        header('Location: index.php?success=' . $success);
+    }else{
+        include('./telas/header.tela.php');//Mostra aquele arquivo, se não achar, segue o programa
+        include('./telas/menu.tela.php');//Mostra aquele arquivo, se não achar, segue o programa
+
+        echo "<span class='text-center h4'>Erro ao adicionar colega</span>";
+        echo "<a class='btn btn-primary' href='./telas/editar.tela.php?id_editar={$_POST['id_editar']}'>Tentar novamente</a>";
+
+        include('./telas/footer.tela.php');
     }
 }
