@@ -8,15 +8,15 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th><th>Nome</th><th>Ações</th>
+                    <th>Id</th><th>Imagem</th><th>Nome</th><th>Ações</th>
                 </tr>
             </thead>
             <?php
                 foreach($registros as $registro){ 
-            
                 echo "<tbody>
                         <tr>
                             <td>{$registro['id']}</td>
+                            <td><img src='./imagens/{$registro['imageUsuario']}' style='max-width: 200px'></td> 
                             <td>{$registro['nome']}</td>
                             <td>
                                 <button name='id_editar' class='btn btn-warning btn-sm' value='{$registro['id']}'>Editar</button>
@@ -24,7 +24,6 @@
                             </td>
                         </tr>
                     </tbody>";
-        
                 }
             ?>
         </table>

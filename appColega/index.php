@@ -15,7 +15,7 @@ if($_GET['success']){//Atualização da tabela, apagando ou editando dados
     echo "<span class='d-block h4 text-center text-success mt-5'>Tabela atualizada com sucesso</span><br><br>";
 }
 
-$stmt = $bd->query('SELECT id,nome FROM colegas'); // ('SELECT nomeColuna,nomeColuna FROM nomeTabela')
+$stmt = $bd->query('SELECT id,imageUsuario, nome FROM colegas'); // ('SELECT nomeColuna,nomeColuna FROM nomeTabela')
 
 $registros = $stmt->fetchAll();//Retorna todos os registros, criando um array
    
