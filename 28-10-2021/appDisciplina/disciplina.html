@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Disciplina do S2</title>
+    </head>
+    <body>
+        <form method="post" action="gravaDisciplinaBD.php">
+            <label for="nome">Disciplina</label>
+            <input type="text" id="nome" name="nome" placeholder="Ling. Serv." required><br><br>
+            <label for="prof">Professor</label>
+            <input type="text" id="prof" name="prof" placeholder="prof. Bono"><br><br>
+            <label for="dia">Dia</label>
+            <input type="date" id="dia" name="dia" required><br>
+            <label for="desc">Disciplina</label>
+            <textarea name="desc" id="desc">Uma disciplina muito legal...</textarea><br><br>
+            <input type="submit" value="Gravar">
+        </form>
+        <br>
+        <a href="listar.php">Listar todos</a>
+        <br><br>
+        <a href="recebeComGet.php?nome=Bono&idade=28&profissao=perigo">Enviar dado com get</a>
+    </body>
+</html>
