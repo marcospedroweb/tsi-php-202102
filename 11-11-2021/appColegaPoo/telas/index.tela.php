@@ -14,7 +14,6 @@
                         </div>';
             }
         }
-
         if(isset($criado)){
 
             if($criado){
@@ -29,24 +28,11 @@
                         </div>';
             }
         }
-        
-        if(isset($alterado)){
-            if($alterado){
-                echo '  <div class="alert alert-success" role="alert">
-                            Disciplina alterada com sucesso!
-                        </div>';
-            }else{
-
-                echo '  <div class="alert alert-danger" role="alert">
-                            Erro ao tentar alterada a disciplina!
-                        </div>';
-            }
-        }
     ?>
 </div>
 <div class="container-xl">
-    <form method="post" class="table" action="">
-        <table border="1" class="mx-auto" style="width: 60%">
+    <form method="post" class="table" action="./apagaColega.php">
+        <table border="1" class="mx-auto">
             <thead>
                 <tr>
                     <th>ID</th><th>Nome</th><th>Professor</th><th>Dia</th><th>Descrição</th><th></th><th></th>
@@ -62,8 +48,8 @@
                         <td><?php echo $disciplina['professor']; ?></td>
                         <td><?php echo $disciplina['dia']; ?></td>
                         <td><?php echo $disciplina['descricao']; ?></td>
-                        <td><button name="editar" class="btn btn-secondary" value="<?php echo $id ?>">Editar</button></td>
-                        <td><button name="apagar" class="btn btn-danger" value="<?php echo $id ?>">Apagar</button></td>
+                        <td><button name="editar" class="btn btn-secondary">Editar</button></td>
+                        <td><button name="apagar" class="btn btn-danger" value="<?php echo $id; ?>">Apagar</button></td>
                     </tr>
                 <?php
                 }

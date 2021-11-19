@@ -31,20 +31,6 @@ if(isset($criado)){
                 </div>';
     }
 }
-if(isset($alterado)){
-
-    if($alterado){
-
-        echo '  <div class="alert alert-success" role="alert">
-                    Disciplina alterada com sucesso!
-                </div>';
-    }else{
-
-        echo '  <div class="alert alert-danger" role="alert">
-                    Erro ao tentar alterada a disciplina!
-                </div>';
-    }
-}
 ?>
 </div>
 <form method="post" action="">
@@ -64,7 +50,7 @@ if(isset($alterado)){
                     <td><?php echo $disciplina['professor']; ?></td>
                     <td><?php echo $disciplina['dia']; ?></td>
                     <td><?php echo $disciplina['descricao']; ?></td>
-                    <td><button name="editar" class="btn btn-secondary" value="<?php echo $id; ?>">Editar</button></td>
+                    <td><button name="editar" class="btn btn-secondary">Editar</button></td>
                     <td><button name="apagar" class="btn btn-danger" value="<?php echo $id; ?>">Apagar</button></td>
                 </tr>
             <?php
